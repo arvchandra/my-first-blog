@@ -43,6 +43,11 @@ h4 {
     margin-right: 20px;
 }
 
+.top-menu svg {
+    height: 50px;
+    width: 50px;
+}
+
 .post {
     margin-bottom: 70px;
 }
@@ -55,6 +60,7 @@ h4 {
 .post > .date,
 .post > .actions {
     float: right;
+    margin-right: 10px;
 }
 
 .btn-secondary,
