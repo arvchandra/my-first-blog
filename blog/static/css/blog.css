@@ -67,7 +67,12 @@ h4 {
 .btn-secondary:visited {
     color: #C25100;
     background: none;
-    border-color: #C25100;
+    border: none;
+}
+
+.btn-secondary svg {
+    width: 20px;
+    height: 20px;
 }
 
 .btn-secondary:hover {

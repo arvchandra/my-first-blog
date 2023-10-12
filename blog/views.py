@@ -6,7 +6,7 @@ from .models import Post
 
 
 def post_list(request):
-    posts = Post.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
 
     return render(request, 'blog/post_list.html', {'posts': posts})
 
@@ -18,6 +18,7 @@ def post_detail(request, pk):
 
 def post_new(request):
     if request.method == "POST":
+        print(request.user)
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
@@ -45,3 +46,7 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
 
     return render(request, 'blog/post_edit.html', {'form': form})
+
+def post_delete(request, pk):
+    Post.objects.filter(pk=pk).delete()
+    return redirect('post_list')
